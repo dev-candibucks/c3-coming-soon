@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C3 - Coming Soon</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #000;
+            color: #fff;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .container {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            padding: 40px 60px;
+            position: relative;
+        }
+
+        /* Header */
+        .header {
+            margin-bottom: 60px;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo {
+            max-width: 900px;
+            height: auto;
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 80px;
+            max-width: 1400px;
+            width: 100%;
+        }
+
+        /* Left Side */
+        .text-content {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .main-heading {
+            font-size: clamp(48px, 8vw, 96px);
+            font-weight: 500;
+            line-height: 1.1;
+            letter-spacing: -1px;
+        }
+
+        .description {
+            font-size: clamp(16px, 2vw, 20px);
+            line-height: 1.6;
+            color: #ccc;
+            font-weight: 300;
+            max-width: 600px;
+        }
+
+        .contact-button {
+            display: inline-block;
+            padding: 18px 40px;
+            background: transparent;
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 600;
+            border: 2px solid #fff;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: fit-content;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .contact-button:hover {
+            background: #fff;
+            color: #000;
+            transform: translateY(-2px);
+        }
+
+        /* Right Side - Image with Blob */
+        .image-section {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 600px;
+        }
+
+        .blob-background {
+            position: absolute;
+            width: 120%;
+            height: 120%;
+            z-index: 1;
+        }
+
+        .main-image-container {
+            position: relative;
+            z-index: 2;
+            width: 450px;
+            height: 450px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 8px solid #fff;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .main-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .image-placeholder {
+            width: 100%;
+            height: 100%;
+            background: #1a1a1a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+        }
+
+        /* Social Section */
+        .social-section {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            margin-top: auto;
+        }
+
+        .social-label {
+            font-size: 16px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+        }
+
+        .social-label::after {
+            content: '';
+            position: absolute;
+            right: -20px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 80px;
+            height: 1px;
+            background: #fff;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 25px;
+            margin-left: 80px;
+        }
+
+        .social-icons a {
+            color: #fff;
+            font-size: 28px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: #FFD700;
+            transform: translateY(-3px);
+        }
+
+        /* Contact Form Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            background: #1a1a1a;
+            padding: 50px;
+            border-radius: 0;
+            max-width: 600px;
+            width: 90%;
+            position: relative;
+            animation: slideUp 0.3s ease;
+            border: 2px solid #333;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .close-button {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 36px;
+            color: #fff;
+            cursor: pointer;
+            background: none;
+            border: none;
+            line-height: 1;
+            z-index: 10;
+        }
+
+        .close-button:hover {
+            color: #FFD700;
+        }
+
+        .form-title {
+            font-size: 36px;
+            font-weight: 500;
+            margin-bottom: 30px;
+            letter-spacing: -1px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: #ccc;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 15px;
+            background: #000;
+            border: 1px solid #333;
+            color: #fff;
+            font-size: 16px;
+            font-family: inherit;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group select {
+            cursor: pointer;
+        }
+
+        .form-group select option {
+            background: #000;
+            color: #fff;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #fff;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-button {
+            width: 100%;
+            padding: 18px;
+            background: transparent;
+            color: #fff;
+            border: 2px solid #fff;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .submit-button:hover {
+            background: #fff;
+            color: #000;
+        }
+
+        .submit-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .success-message {
+            display: none;
+            padding: 20px;
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid #22c55e;
+            color: #22c55e;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .success-message.active {
+            display: block;
+        }
+
+        .error-message {
+            display: none;
+            padding: 20px;
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid #ef4444;
+            color: #ef4444;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .error-message.active {
+            display: block;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .main-content {
+                grid-template-columns: 1fr;
+                gap: 60px;
+            }
+
+            .image-section {
+                order: -1;
+                height: 500px;
+            }
+
+            .main-image-container {
+                width: 350px;
+                height: 350px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px;
+            }
+
+            .header {
+                margin-bottom: 40px;
+            }
+
+            .main-content {
+                gap: 40px;
+            }
+
+            .image-section {
+                height: 400px;
+            }
+
+            .main-image-container {
+                width: 280px;
+                height: 280px;
+            }
+
+            .social-section {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+            }
+
+            .social-label::after {
+                display: none;
+            }
+
+            .social-icons {
+                margin-left: 0;
+            }
+
+            .modal-content {
+                padding: 30px;
+            }
+
+            .form-title {
+                font-size: 28px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .image-section {
+                height: 320px;
+            }
+
+            .main-image-container {
+                width: 240px;
+                height: 240px;
+                border: 5px solid #fff;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo-container">
+                <img src="logo.png" alt="Logo" class="logo" id="logoImage">
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="text-content">
+                <h1 class="main-heading">Coming soon</h1>
+                <p class="description">
+                    The future of content creation starts here. C3 Content Creator Carnival is where South Africa's next generation of creators, filmmakers, and musicians are born. We can't wait to innovate with you!
+                </p>
+                <button class="contact-button" onclick="openContactForm()">Contact Us</button>
+            </div>
+
+            <div class="image-section">
+                <!-- SVG Blob Background -->
+                <svg class="blob-background" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="blobGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" />
+                            <stop offset="50%" style="stop-color:#90EE90;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#87CEEB;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <path fill="url(#blobGradient)" d="M47.4,-63.6C59.9,-54.4,67.5,-38.5,71.7,-21.8C75.9,-5.1,76.7,12.4,71.2,27.9C65.7,43.4,53.9,56.9,39.3,65.7C24.7,74.5,7.3,78.6,-9.8,76.4C-26.9,74.2,-43.7,65.7,-56.6,53.5C-69.5,41.3,-78.5,25.4,-80.8,8.4C-83.1,-8.6,-78.7,-26.7,-68.9,-40.5C-59.1,-54.3,-43.9,-63.8,-28.6,-71.9C-13.3,-80,-3.3,-86.7,8.1,-87.5C19.5,-88.3,34.9,-72.8,47.4,-63.6Z" transform="translate(100 100)" />
+                </svg>
+
+                <div class="main-image-container">
+                    <img src="main-photo.jpg" alt="C3 Preview" class="main-image" id="mainImage">
+                    <!-- <div class="image-placeholder">🎬</div> -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Social Section -->
+        <div class="social-section">
+            <div class="social-label">Get Social</div>
+            <div class="social-icons">
+                <a href="#" aria-label="Facebook">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                    </svg>
+                </a>
+                <a href="#" aria-label="Twitter">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                    </svg>
+                </a>
+                <a href="#" aria-label="Instagram">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Form Modal -->
+    <div class="modal" id="contactModal">
+        <div class="modal-content">
+            <button class="close-button" onclick="closeContactForm()">&times;</button>
+            <h2 class="form-title">Get in Touch</h2>
+            
+            <!-- Formspree Form -->
+            <form action="https://formspree.io/f/mjgbqqjk" method="POST" id="contactForm">
+                <div class="form-group">
+                    <label for="name">Name *</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Phone</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+                
+                <div class="form-group">
+                    <label for="role">Are you applying to be a participant or a facilitator? *</label>
+                    <select id="role" name="role" required>
+                        <option value="">Select...</option>
+                        <option value="participant">Participant</option>
+                        <option value="facilitator">Facilitator</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="cohort">Are you hoping to join the: *</label>
+                    <select id="cohort" name="cohort" required>
+                        <option value="">Select...</option>
+                        <option value="february">February Weekly Cohort</option>
+                        <option value="march">March Weekly Cohort</option>
+                        <option value="easter">Easter Holiday Full Week Workshop</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message"></textarea>
+                </div>
+                
+                <button type="submit" class="submit-button" id="submitButton">Send Message</button>
+                
+                <div class="success-message" id="successMessage">
+                    Thank you! We'll be in touch soon.
+                </div>
+                
+                <div class="error-message" id="errorMessage">
+                    Oops! There was an error submitting the form. Please try again.
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function openContactForm() {
+            document.getElementById('contactModal').classList.add('active');
+        }
+
+        function closeContactForm() {
+            document.getElementById('contactModal').classList.remove('active');
+            // Reset messages
+            document.getElementById('successMessage').classList.remove('active');
+            document.getElementById('errorMessage').classList.remove('active');
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('contactModal');
+            if (event.target === modal) {
+                closeContactForm();
+            }
+        }
+
+        // Handle form submission with Formspree
+        const form = document.getElementById('contactForm');
+        const submitButton = document.getElementById('submitButton');
+        const successMessage = document.getElementById('successMessage');
+        const errorMessage = document.getElementById('errorMessage');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Disable submit button
+            submitButton.disabled = true;
+            submitButton.textContent = 'Sending...';
+            
+            // Hide any previous messages
+            successMessage.classList.remove('active');
+            errorMessage.classList.remove('active');
+            
+            // Get form data
+            const formData = new FormData(form);
+            
+            // Send to Formspree
+            fetch('https://formspree.io/f/mjgbqqjk', {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    // Success
+                    successMessage.classList.add('active');
+                    form.reset();
+                    
+                    // Close modal after 3 seconds
+                    setTimeout(() => {
+                        closeContactForm();
+                    }, 3000);
+                } else {
+                    // Error
+                    errorMessage.classList.add('active');
+                }
+            })
+            .catch(error => {
+                // Error
+                errorMessage.classList.add('active');
+            })
+            .finally(() => {
+                // Re-enable submit button
+                submitButton.disabled = false;
+                submitButton.textContent = 'Send Message';
+            });
+        });
+    </script>
+</body>
+</html>
