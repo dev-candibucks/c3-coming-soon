@@ -154,6 +154,7 @@
             transition: all 0.3s ease;
             border: none;
             cursor: pointer;
+            display: inline-block;
         }
 
         .btn-primary:hover {
@@ -203,10 +204,9 @@
             object-fit: cover;
         }
 
-        /* What is C3 Section */
-        .what-is-c3 {
+        /* Section Layouts */
+        .what-is-c3, .why-c3, .programs, .gallery, .facilitators, .cta-section {
             padding: 100px 60px;
-            background: linear-gradient(180deg, var(--dark) 0%, #0a0a0a 100%);
         }
 
         .section-content {
@@ -257,131 +257,9 @@
             line-height: 1.6;
         }
 
-        /* Why C3 Section */
-        .why-c3 {
-            padding: 100px 60px;
-            background: var(--dark);
-        }
-
-        .why-content {
-            max-width: 1000px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .why-content h2 {
-            font-size: clamp(36px, 6vw, 64px);
-            font-weight: 900;
-            margin-bottom: 40px;
-        }
-
-        .why-content .highlight {
-            font-size: clamp(20px, 3vw, 32px);
-            line-height: 1.6;
-            margin-bottom: 30px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-weight: 700;
-        }
-
-        .why-content p {
-            font-size: clamp(16px, 2vw, 20px);
-            line-height: 1.8;
-            color: #ccc;
-            margin-bottom: 20px;
-        }
-
-        /* Programs Section */
-        .programs {
-            padding: 100px 60px;
-            background: linear-gradient(180deg, var(--dark) 0%, #0a0a0a 100%);
-        }
-
-        .program-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
-            max-width: 1200px;
-            margin: 60px auto 0;
-        }
-
-        .program-card {
-            background: linear-gradient(135deg, rgba(255, 20, 147, 0.1), rgba(139, 0, 139, 0.1));
-            border: 2px solid var(--primary);
-            padding: 50px;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .program-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(255, 20, 147, 0.3);
-        }
-
-        .program-card h3 {
-            font-size: 32px;
-            margin-bottom: 20px;
-            color: var(--primary);
-        }
-
-        .program-details {
-            color: #ccc;
-            line-height: 1.8;
-            margin-bottom: 15px;
-        }
-
-        .program-details strong {
-            color: var(--light);
-        }
-
-        /* Gallery Section */
-        .gallery {
-            padding: 100px 60px;
-            background: var(--dark);
-        }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .gallery-item {
-            position: relative;
-            overflow: hidden;
-            aspect-ratio: 1;
-            border-radius: 10px;
-            border: 2px solid rgba(255, 255, 255, 0.1);
-            background: linear-gradient(135deg, rgba(255, 20, 147, 0.1), rgba(139, 0, 139, 0.1));
-            transition: all 0.3s ease;
-        }
-
-        .gallery-item:hover {
-            transform: scale(1.05);
-            border-color: var(--primary);
-            box-shadow: 0 10px 30px rgba(255, 20, 147, 0.3);
-        }
-
-        .gallery-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
         /* Facilitators Section */
         .facilitators {
-            padding: 100px 60px;
             background: linear-gradient(135deg, rgba(255, 20, 147, 0.1), rgba(139, 0, 139, 0.1));
-        }
-
-        .facilitators-content {
-            max-width: 1200px;
-            margin: 0 auto;
         }
 
         .facilitators-grid {
@@ -407,13 +285,6 @@
             font-weight: 700;
             margin-bottom: 30px;
             color: var(--primary);
-        }
-
-        .facilitators-text p {
-            font-size: 18px;
-            line-height: 1.8;
-            color: #ccc;
-            margin-bottom: 20px;
         }
 
         .facilitators-list {
@@ -443,69 +314,11 @@
             border-left: 4px solid var(--primary);
         }
 
-        .facilitators-benefits h3 {
-            font-size: 24px;
-            margin-bottom: 20px;
-            color: var(--primary);
-        }
-
         .benefit-item {
             display: flex;
             align-items: flex-start;
             gap: 15px;
             margin-bottom: 20px;
-        }
-
-        .benefit-icon {
-            font-size: 24px;
-            min-width: 30px;
-        }
-
-        .benefit-text {
-            color: #ccc;
-            line-height: 1.6;
-        }
-
-        .benefit-text strong {
-            color: var(--light);
-        }
-
-        /* CTA Section */
-        .cta-section {
-            padding: 100px 60px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            text-align: center;
-        }
-
-        .cta-section h2 {
-            font-size: clamp(36px, 6vw, 64px);
-            margin-bottom: 30px;
-        }
-
-        .cta-section p {
-            font-size: clamp(18px, 2vw, 24px);
-            margin-bottom: 40px;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .btn-light {
-            padding: 18px 40px;
-            background: var(--light);
-            color: var(--dark);
-            text-decoration: none;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-size: 16px;
-            transition: all 0.3s ease;
-            display: inline-block;
-        }
-
-        .btn-light:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
 
         /* Footer */
@@ -521,193 +334,17 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 40px;
-            margin-bottom: 40px;
         }
 
-        .footer-section h3 {
-            font-size: 20px;
-            margin-bottom: 20px;
-            color: var(--primary);
-        }
-
-        .footer-section p,
         .footer-section a {
             color: #ccc;
-            line-height: 1.8;
             text-decoration: none;
             display: block;
             margin-bottom: 10px;
         }
 
-        .footer-section a:hover {
-            color: var(--primary);
-        }
-
-        .social-icons-footer {
-            display: flex;
-            gap: 20px;
-            margin-top: 20px;
-        }
-
-        .social-icons-footer a {
-            color: var(--light);
-            font-size: 24px;
-            transition: color 0.3s ease;
-        }
-
-        .social-icons-footer a:hover {
-            color: var(--primary);
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: #666;
-        }
-
-        /* Modal */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.95);
-            animation: fadeIn 0.3s ease;
-        }
-
-        .modal.active {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        .modal-content {
-            background: #1a1a1a;
-            padding: 50px;
-            max-width: 600px;
-            width: 90%;
-            position: relative;
-            border: 2px solid var(--gray);
-            max-height: 90vh;
-            overflow-y: auto;
-        }
-
-        .close-button {
-            position: absolute;
-            top: 20px;
-            right: 25px;
-            font-size: 36px;
-            color: var(--light);
-            cursor: pointer;
-            background: none;
-            border: none;
-            line-height: 1;
-        }
-
-        .close-button:hover {
-            color: var(--primary);
-        }
-
-        .form-title {
-            font-size: 36px;
-            font-weight: 500;
-            margin-bottom: 30px;
-        }
-
-        .form-group {
-            margin-bottom: 25px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-size: 14px;
-            color: #ccc;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
-            width: 100%;
-            padding: 15px;
-            background: var(--dark);
-            border: 1px solid var(--gray);
-            color: var(--light);
-            font-size: 16px;
-            font-family: inherit;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus,
-        .form-group select:focus {
-            outline: none;
-            border-color: var(--light);
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-
-        .submit-button {
-            width: 100%;
-            padding: 18px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: var(--light);
-            border: none;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .submit-button:hover {
-            opacity: 0.9;
-        }
-
-        .success-message,
-        .error-message {
-            display: none;
-            padding: 20px;
-            margin-top: 20px;
-            text-align: center;
-        }
-
-        .success-message {
-            background: rgba(34, 197, 94, 0.1);
-            border: 1px solid #22c55e;
-            color: #22c55e;
-        }
-
-        .error-message {
-            background: rgba(239, 68, 68, 0.1);
-            border: 1px solid #ef4444;
-            color: #ef4444;
-        }
-
-        .success-message.active,
-        .error-message.active {
-            display: block;
-        }
-
-        /* Responsive */
         @media (max-width: 968px) {
-            nav {
-                padding: 20px 30px;
-            }
-
+            nav { padding: 20px 30px; }
             .nav-links {
                 display: none;
                 position: absolute;
@@ -717,598 +354,118 @@
                 background: rgba(0, 0, 0, 0.98);
                 flex-direction: column;
                 padding: 20px;
-                gap: 20px;
             }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .mobile-menu-toggle {
-                display: block;
-            }
-
-            .hero,
-            .what-is-c3,
-            .why-c3,
-            .programs,
-            .cta-section,
-            footer {
-                padding: 60px 30px;
-            }
-
-            .hero-content {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-
-            .hero-image {
-                order: -1;
-            }
-
-            .program-cards {
-                grid-template-columns: 1fr;
-            }
-
-            .facilitators-grid {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-
-            .gallery-grid {
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            }
-
-            .modal-content {
-                padding: 30px;
-            }
+            .nav-links.active { display: flex; }
+            .mobile-menu-toggle { display: block; }
+            .hero-content { grid-template-columns: 1fr; }
+            .facilitators-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
     <nav>
         <div class="logo-nav">C3</div>
         <ul class="nav-links" id="navLinks">
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#programs">Programs</a></li>
-            <li><a href="#facilitators">Join Our Team</a></li>
-            <li><a href="#contact" onclick="openContactForm()">Contact</a></li>
+            <li><a href="facilitator.html">Join Our Team</a></li>
         </ul>
-        <a href="#" class="nav-cta" onclick="openContactForm()">Apply Now</a>
+        <a href="apply.html" class="nav-cta">Apply Now</a>
         <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
     </nav>
 
-    <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-content">
             <div class="hero-text">
                 <h1>Content Creator Carnival</h1>
                 <p>Where South Africa's next generation of creators, filmmakers, and musicians are born. Stop consuming. Start creating.</p>
                 <div class="hero-buttons">
-                    <a href="#" class="btn-primary" onclick="openContactForm()">Join C3</a>
+                    <a href="apply.html" class="btn-primary">Join C3</a>
                     <a href="#about" class="btn-secondary">Learn More</a>
                 </div>
             </div>
             <div class="hero-image">
                 <div class="hero-image-circle">
-                    <img src="hero-image.jpg" alt="C3 Content Creator Carnival" class="hero-image">
+                    <img src="hero-image.jpg" alt="C3 Content Creator Carnival">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- What is C3 Section -->
     <section class="what-is-c3" id="about">
         <div class="section-content">
             <h2 class="section-title">What is C3?</h2>
-            <p style="text-align: center; font-size: 20px; color: #ccc; max-width: 900px; margin: 0 auto 60px;">
-                The Content Creator Carnival is a creative carnival where we challenge you to be your best. Over 5-6 days, we provide teens and pre-teens with a highly stimulating, state-of-the-art environment to experiment with professional equipment and software.
-            </p>
-
             <div class="feature-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">🎬</div>
-                    <h3>Content Creation</h3>
-                    <p>Learn to create viral-worthy content from concept to execution. Work with professional equipment and industry creators.</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">🎥</div>
-                    <h3>Professional Filmmaking</h3>
-                    <p>Ever wanted to make your own movie? Master cameras, lighting, editing suites, and bring your stories to life.</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">🎵</div>
-                    <h3>Music Production</h3>
-                    <p>Have all the best ideas for songs? Learn beat-making, songwriting, recording, and make your musical dreams real.</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">🎧</div>
-                    <h3>DJing</h3>
-                    <p>Ever wondered what DJs even do? Now you can be the DJ! Learn to mix, scratch, and command the decks.</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">🤝</div>
-                    <h3>Collaboration</h3>
-                    <p>Work with South Africa's next generation of hottest influencers to create highly desirable content.</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">🌟</div>
-                    <h3>Leadership Skills</h3>
-                    <p>Develop confidence, social skills, and leadership abilities that last a lifetime.</p>
-                </div>
+                <div class="feature-card"><div class="feature-icon">🎬</div><h3>Content Creation</h3><p>Learn to create viral-worthy content from concept to execution.</p></div>
+                <div class="feature-card"><div class="feature-icon">🎥</div><h3>Filmmaking</h3><p>Master cameras, lighting, and editing suites.</p></div>
+                <div class="feature-card"><div class="feature-icon">🎵</div><h3>Music</h3><p>Learn beat-making, songwriting, and recording.</p></div>
             </div>
         </div>
     </section>
 
-    <!-- Why C3 Section -->
-    <section class="why-c3">
-        <div class="why-content">
-            <h2>Why C3?</h2>
-            <p class="highlight">This is not babysitting. This is transformation.</p>
-            <p>C3 is not a babysitting camp but a transformative experience geared towards empowering teens and improving their confidence and creativity.</p>
-            <p>At C3, we center a child's confidence and cognitive development and use theatre, film, music, and song to help them improve their language, social, and leadership skills.</p>
-            <p style="font-size: 24px; margin-top: 40px; font-weight: 600;">We do not see ourselves as a camp but <span style="color: var(--primary);">a once in a lifetime transformative experience that helps them become the person the world isn't allowing them to be.</span></p>
-        </div>
-    </section>
-
-    <!-- Gallery Section -->
-    <section class="gallery">
-        <div class="section-content">
-            <h2 class="section-title">Experience C3</h2>
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="gallery-1.jpg" alt="C3 Workshop" class="gallery-image">
-                </div>
-                <div class="gallery-item">
-                    <img src="gallery-2.jpg" alt="Content Creation" class="gallery-image">
-                </div>
-                <div class="gallery-item">
-                    <img src="gallery-3.jpg" alt="Music Production" class="gallery-image">
-                </div>
-                <div class="gallery-item">
-                    <img src="gallery-4.jpg" alt="Film Making" class="gallery-image">
-                </div>
-                <div class="gallery-item">
-                    <img src="gallery-5.jpg" alt="Collaboration" class="gallery-image">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Programs Section -->
-    <section class="programs" id="programs">
-        <div class="section-content">
-            <h2 class="section-title">Join the Movement</h2>
-            
-            <div class="program-cards">
-                <div class="program-card">
-                    <h3>February Weekly Cohort</h3>
-                    <div class="program-details">
-                        <p><strong>When:</strong> Every Saturday in February</p>
-                        <p><strong>Dates:</strong> Feb 7, 14, 21, 28</p>
-                        <p><strong>Time:</strong> 10:00 - 16:00</p>
-                        <p><strong>Ages:</strong> 10-13 | 13-17</p>
-                        <p><strong>Perfect for:</strong> Testing the waters, learning specific skills, building your portfolio</p>
-                    </div>
-                </div>
-
-                <div class="program-card">
-                    <h3>March Weekly Cohort</h3>
-                    <div class="program-details">
-                        <p><strong>When:</strong> Every Saturday in March</p>
-                        <p><strong>Time:</strong> 10:00 - 16:00</p>
-                        <p><strong>Ages:</strong> 10-13 | 13-17</p>
-                        <p><strong>Perfect for:</strong> Continued development, mastering new disciplines, creating more content</p>
-                    </div>
-                </div>
-
-                <div class="program-card">
-                    <h3>Easter Full Week Workshop</h3>
-                    <div class="program-details">
-                        <p><strong>When:</strong> Easter Holidays</p>
-                        <p><strong>Duration:</strong> 5-6 days full immersion</p>
-                        <p><strong>Ages:</strong> 10-13 | 13-17</p>
-                        <p><strong>Perfect for:</strong> Going all in, creating something epic, complete portfolio pieces</p>
-                    </div>
-                </div>
-            </div>
-
-            <div style="text-align: center; margin-top: 60px;">
-                <p style="font-size: 20px; color: #ccc; margin-bottom: 20px;">Participants will be fed, engaged, hydrated, and inspired throughout.</p>
-                <p style="font-size: 32px; font-weight: 700; color: var(--primary);">IT SHOULD BE ILLEGAL TO HAVE THIS MUCH FUN!</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Facilitators Section -->
     <section class="facilitators" id="facilitators">
-        <div class="facilitators-content">
+        <div class="section-content">
             <div class="facilitators-grid">
                 <div class="facilitators-text">
-                    <h2>Calling All Drama & Film Students</h2>
+                    <h2>Calling All Mentors</h2>
                     <p class="tagline">Get Paid to Build Legends</p>
-                    <p>Got skills? Want to use them for something that actually matters and pays?</p>
-                    <p>C3 (Content Creator Carnival) needs facilitators to mentor the next generation of South African creators.</p>
-                    <p style="font-size: 20px; font-weight: 600; color: var(--light); margin-top: 30px;">This isn't just work experience. It's a movement.</p>
-
-                    <h3 style="margin-top: 40px; margin-bottom: 20px; color: var(--primary);">We Need:</h3>
+                    <p>C3 needs facilitators to mentor the next generation of South African creators.</p>
                     <ul class="facilitators-list">
-                        <li>🎬 <strong>Film Students</strong> - Camera operation, lighting, editing, sound design</li>
-                        <li>🎭 <strong>Drama Students</strong> - Performance coaching, improvisation, creative direction</li>
-                        <li>🎥 <strong>Content Creators</strong> - Video production, social media strategy, storytelling</li>
-                        <li>🎵 <strong>Music/DJ Students</strong> - Production, beat-making, DJing, recording</li>
+                        <li>🎬 Film & Camera Students</li>
+                        <li>🎭 Drama & Performance Students</li>
+                        <li>🎵 Music & DJ Students</li>
                     </ul>
-
                     <div style="margin-top: 40px;">
-                        <a href="#" class="btn-primary" onclick="openFacilitatorForm()">Apply to Be a Facilitator</a>
+                        <a href="facilitator.html" class="btn-primary">Apply to Be a Facilitator</a>
                     </div>
                 </div>
-
                 <div class="facilitators-benefits">
-                    <h3>What You Get</h3>
-                    <div class="benefit-item">
-                        <div class="benefit-icon">💰</div>
-                        <div class="benefit-text"><strong>Paid position</strong> – Your expertise is valued</div>
-                    </div>
-                    <div class="benefit-item">
-                        <div class="benefit-icon">📚</div>
-                        <div class="benefit-text"><strong>Portfolio content</strong> – Real mentorship experience</div>
-                    </div>
-                    <div class="benefit-item">
-                        <div class="benefit-icon">🎯</div>
-                        <div class="benefit-text"><strong>Industry connections</strong> – Work alongside working professionals</div>
-                    </div>
-                    <div class="benefit-item">
-                        <div class="benefit-icon">❤️</div>
-                        <div class="benefit-text"><strong>Actual impact</strong> – Watch creativity unlock in real time</div>
-                    </div>
-                    <div class="benefit-item">
-                        <div class="benefit-icon">📅</div>
-                        <div class="benefit-text"><strong>Flexible schedule</strong> – Weekly workshops or full camp (or both)</div>
-                    </div>
-
-                    <h3 style="margin-top: 40px; margin-bottom: 20px;">The Gigs</h3>
-                    <p style="color: #ccc; line-height: 1.8;">
-                        <strong>February Saturdays:</strong> Feb 7, 14, 21, 28 (10:00-16:00)<br>
-                        <strong>Easter Camp:</strong> 5-6 days full immersion<br>
-                        <strong>Choose one or both!</strong>
-                    </p>
-
-                    <div style="margin-top: 30px; padding: 20px; background: rgba(255, 20, 147, 0.1); border: 1px solid var(--primary);">
-                        <p style="font-style: italic; color: var(--light); line-height: 1.6;">
-                            "Every workshop, a shy kid picks up a camera for the first time. Every session, someone realizes they're actually good at this. Every day, you help someone become the creator they're meant to be."
-                        </p>
-                    </div>
+                    <div class="benefit-item">💰 Paid positions available</div>
+                    <div class="benefit-item">📚 Portfolio development</div>
+                    <div class="benefit-item">🎯 Industry connections</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="cta-section">
+    <section class="cta-section" style="text-align: center; background: linear-gradient(135deg, var(--primary), var(--secondary));">
         <h2>Ready to Create Your Future?</h2>
-        <p>Will you spend another holiday scrolling... or will you become the one people scroll to see?</p>
-        <a href="#" class="btn-light" onclick="openContactForm()">Apply Now</a>
+        <a href="apply.html" class="btn-primary" style="background: var(--light); color: var(--dark); margin-top: 30px;">Apply Now</a>
     </section>
 
-    <!-- Footer -->
     <footer>
         <div class="footer-content">
             <div class="footer-section">
-                <h3>C3 Content Creator Carnival</h3>
-                <p>Where South Africa's next generation of creators are born.</p>
-                <div class="social-icons-footer">
-                    <a href="#" aria-label="Facebook">📘</a>
-                    <a href="#" aria-label="Twitter">🐦</a>
-                    <a href="#" aria-label="Instagram">📷</a>
-                </div>
+                <h3>C3 Carnival</h3>
+                <p>The future of South African content.</p>
             </div>
-
-            <div class="footer-section">
-                <h3>Contact</h3>
-                <a href="mailto:info@creatorcarnival.co.za">info@creatorcarnival.co.za</a>
-                <a href="tel:+27726101298">+27 72 610 1298</a>
-                <a href="http://creatorcarnival.co.za" target="_blank">creatorcarnival.co.za</a>
-            </div>
-
             <div class="footer-section">
                 <h3>Quick Links</h3>
-                <a href="#about">About C3</a>
-                <a href="#programs">Programs</a>
-                <a href="#" onclick="openContactForm()">Apply Now</a>
-                <a href="#" onclick="openContactForm()">Facilitator Opportunities</a>
+                <a href="apply.html">Student Application</a>
+                <a href="facilitator.html">Facilitator Application</a>
             </div>
-        </div>
-        
-        <div class="footer-bottom">
-            <p>&copy; 2025 C3 Content Creator Carnival. All rights reserved.</p>
         </div>
     </footer>
 
-    <div class="modal" id="contactModal">
-        <div class="modal-content">
-            <button class="close-button" onclick="closeContactForm()">&times;</button>
-            <h2 class="form-title">Join C3</h2>
-            
-            <form action="https://formspree.io/f/mjgbqqjk" method="POST" id="contactForm">
-                <!-- Student Information -->
-                <h3 style="color: var(--primary); margin-bottom: 20px; font-size: 20px;">Student Information</h3>
-                
-                <div class="form-group">
-                    <label for="studentName">Student Name *</label>
-                    <input type="text" id="studentName" name="student_name" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="studentSurname">Student Surname *</label>
-                    <input type="text" id="studentSurname" name="student_surname" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="studentSchool">Student School *</label>
-                    <input type="text" id="studentSchool" name="student_school" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="studentGrade">Student Grade *</label>
-                    <select id="studentGrade" name="student_grade" required>
-                        <option value="">Select Grade...</option>
-                        <option value="5">Grade 5</option>
-                        <option value="6">Grade 6</option>
-                        <option value="7">Grade 7</option>
-                        <option value="8">Grade 8</option>
-                        <option value="9">Grade 9</option>
-                        <option value="10">Grade 10</option>
-                        <option value="11">Grade 11</option>
-                        <option value="12">Grade 12</option>
-                    </select>
-                </div>
-
-                <!-- Payment Responsible Party -->
-                <h3 style="color: var(--primary); margin: 30px 0 20px; font-size: 20px;">Person Responsible for Payment</h3>
-                
-                <div class="form-group">
-                    <label for="responsiblePerson">Full Name *</label>
-                    <input type="text" id="responsiblePerson" name="responsible_person" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="idNumber">ID Number *</label>
-                    <input type="text" id="idNumber" name="id_number" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="cellNumber">Cell Number *</label>
-                    <input type="tel" id="cellNumber" name="cell_number" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="workNumber">Work Number</label>
-                    <input type="tel" id="workNumber" name="work_number">
-                </div>
-                
-                <div class="form-group">
-                    <label for="homeNumber">Home Number</label>
-                    <input type="tel" id="homeNumber" name="home_number">
-                </div>
-                
-                <div class="form-group">
-                    <label for="email">Email Address *</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-
-                <!-- Program Selection -->
-                <h3 style="color: var(--primary); margin: 30px 0 20px; font-size: 20px;">Program Selection</h3>
-                
-                <div class="form-group">
-                    <label for="programType">Select Program Type *</label>
-                    <select id="programType" name="program_type" required onchange="updateProgramOptions()">
-                        <option value="">Select...</option>
-                        <option value="monthly">Monthly Subscription - R1,999/month</option>
-                        <option value="holiday">Holiday Camp - R5,000/week or R9,000/2 weeks</option>
-                        <option value="single">Once-Off Session - R999</option>
-                    </select>
-                </div>
-
-                <!-- Monthly Subscription Options -->
-                <div class="form-group" id="monthlyOptions" style="display: none;">
-                    <label for="selectedMonth">Select Month *</label>
-                    <select id="selectedMonth" name="selected_month">
-                        <option value="">Select Month...</option>
-                        <option value="february">February 2026</option>
-                        <option value="march">March 2026</option>
-                        <option value="april">April 2026</option>
-                        <option value="may">May 2026</option>
-                        <option value="june">June 2026</option>
-                    </select>
-                    <p style="color: #ccc; font-size: 14px; margin-top: 10px;">
-                        <strong>Fee:</strong> R1,999/month | <strong>Deposit Required:</strong> R999
-                    </p>
-                </div>
-
-                <!-- Holiday Camp Options -->
-                <div class="form-group" id="holidayOptions" style="display: none;">
-                    <label for="campDuration">Select Camp Duration *</label>
-                    <select id="campDuration" name="camp_duration">
-                        <option value="">Select Duration...</option>
-                        <option value="1week">1 Week - R5,000</option>
-                        <option value="2weeks">2 Weeks - R9,000</option>
-                    </select>
-                    <p style="color: #ccc; font-size: 14px; margin-top: 10px;">
-                        <strong>Deposit Required:</strong> R999
-                    </p>
-                </div>
-
-                <!-- Single Session Info -->
-                <div class="form-group" id="singleSessionInfo" style="display: none;">
-                    <p style="color: #ccc; font-size: 14px;">
-                        <strong>Fee:</strong> R999 (Full payment required)
-                    </p>
-                </div>
-
-                <!-- Terms and Conditions -->
-                <div class="form-group" style="margin-top: 30px;">
-                    <label style="display: flex; align-items: flex-start; gap: 10px; text-transform: none; font-size: 14px; line-height: 1.6;">
-                        <input type="checkbox" id="termsAccepted" name="terms_accepted" required style="width: auto; margin-top: 3px;">
-                        <span>I understand that a fee is payable in advance as per the above fees. A place in either the weekend or holiday camps is only finalized once we have received the student's deposit. Bank details and payment terms will be sent to me via email. *</span>
-                    </label>
-                </div>
-
-                <div class="form-group">
-                    <label for="message">Additional Notes or Questions</label>
-                    <textarea id="message" name="message"></textarea>
-                </div>
-                
-                <button type="submit" class="submit-button" id="submitButton">Submit Application</button>
-                
-                <div class="success-message" id="successMessage">
-                    Thank you! Your application has been received. Bank details and payment instructions will be sent to your email shortly.
-                </div>
-                
-                <div class="error-message" id="errorMessage">
-                    Oops! There was an error. Please try again.
-                </div>
-            </form>
-        </div>
-    </div>
-
     <script>
-        // Mobile menu toggle
         function toggleMobileMenu() {
             document.getElementById('navLinks').classList.toggle('active');
         }
 
-        // Contact form modal
-        function openContactForm(event) {
-            if (event) event.preventDefault();
-            document.getElementById('contactModal').classList.add('active');
-        }
-
-        function openFacilitatorForm(event) {
-            if (event) event.preventDefault();
-            // For facilitators, redirect to email or separate page
-            window.location.href = 'mailto:info@creatorcarnival.co.za?subject=Facilitator Application&body=Please include:%0D%0A- CV/Portfolio%0D%0A- Your area of expertise%0D%0A- Why C3?%0D%0A- Availability (Feb, Easter, or both)';
-        }
-
-        function closeContactForm() {
-            document.getElementById('contactModal').classList.remove('active');
-            document.getElementById('successMessage').classList.remove('active');
-            document.getElementById('errorMessage').classList.remove('active');
-            document.getElementById('contactForm').reset();
-            // Reset dynamic fields
-            document.getElementById('monthlyOptions').style.display = 'none';
-            document.getElementById('holidayOptions').style.display = 'none';
-            document.getElementById('singleSessionInfo').style.display = 'none';
-        }
-
-        // Update program options based on selection
-        function updateProgramOptions() {
-            const programType = document.getElementById('programType').value;
-            const monthlyOptions = document.getElementById('monthlyOptions');
-            const holidayOptions = document.getElementById('holidayOptions');
-            const singleSessionInfo = document.getElementById('singleSessionInfo');
-            const selectedMonth = document.getElementById('selectedMonth');
-            const campDuration = document.getElementById('campDuration');
-
-            // Hide all options first
-            monthlyOptions.style.display = 'none';
-            holidayOptions.style.display = 'none';
-            singleSessionInfo.style.display = 'none';
-
-            // Reset required attributes
-            selectedMonth.required = false;
-            campDuration.required = false;
-
-            // Show relevant options
-            if (programType === 'monthly') {
-                monthlyOptions.style.display = 'block';
-                selectedMonth.required = true;
-            } else if (programType === 'holiday') {
-                holidayOptions.style.display = 'block';
-                campDuration.required = true;
-            } else if (programType === 'single') {
-                singleSessionInfo.style.display = 'block';
-            }
-        }
-
-        // Close modal when clicking outside
-        window.onclick = function(event) {
-            const modal = document.getElementById('contactModal');
-            if (event.target === modal) {
-                closeContactForm();
-            }
-        }
-
-        // Form submission
-        const form = document.getElementById('contactForm');
-        const submitButton = document.getElementById('submitButton');
-        const successMessage = document.getElementById('successMessage');
-        const errorMessage = document.getElementById('errorMessage');
-
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            submitButton.disabled = true;
-            submitButton.textContent = 'Sending...';
-            successMessage.classList.remove('active');
-            errorMessage.classList.remove('active');
-            
-            const formData = new FormData(form);
-            
-            fetch('https://formspree.io/f/mjgbqqjk', {
-                method: 'POST',
-                body: formData,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            })
-            .then(response => {
-                if (response.ok) {
-                    successMessage.classList.add('active');
-                    form.reset();
-                    // Reset dynamic fields
-                    document.getElementById('monthlyOptions').style.display = 'none';
-                    document.getElementById('holidayOptions').style.display = 'none';
-                    document.getElementById('singleSessionInfo').style.display = 'none';
-                    setTimeout(() => {
-                        closeContactForm();
-                    }, 5000);
-                } else {
-                    errorMessage.classList.add('active');
-                }
-            })
-            .catch(error => {
-                errorMessage.classList.add('active');
-            })
-            .finally(() => {
-                submitButton.disabled = false;
-                submitButton.textContent = 'Submit Application';
-            });
-        });
-
-        // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 const href = this.getAttribute('href');
-                if (href !== '#' && !this.hasAttribute('onclick')) {
+                if (href !== '#') {
                     e.preventDefault();
                     const target = document.querySelector(href);
                     if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                        // Close mobile menu if open
+                        target.scrollIntoView({ behavior: 'smooth' });
                         document.getElementById('navLinks').classList.remove('active');
                     }
                 }
             });
         });
     </script>
+</body>
+</html>
