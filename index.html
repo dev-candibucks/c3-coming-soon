@@ -1032,77 +1032,144 @@
         </div>
     </footer>
 
-    <!-- Contact Form Modal -->
     <div class="modal" id="contactModal">
         <div class="modal-content">
             <button class="close-button" onclick="closeContactForm()">&times;</button>
             <h2 class="form-title">Join C3</h2>
             
             <form action="https://formspree.io/f/mjgbqqjk" method="POST" id="contactForm">
+                <!-- Student Information -->
+                <h3 style="color: var(--primary); margin-bottom: 20px; font-size: 20px;">Student Information</h3>
+                
                 <div class="form-group">
-                    <label for="name">Name *</label>
-                    <input type="text" id="name" name="name" required>
+                    <label for="studentName">Student Name *</label>
+                    <input type="text" id="studentName" name="student_name" required>
                 </div>
                 
                 <div class="form-group">
-                    <label for="email">Email *</label>
+                    <label for="studentSurname">Student Surname *</label>
+                    <input type="text" id="studentSurname" name="student_surname" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="studentSchool">Student School *</label>
+                    <input type="text" id="studentSchool" name="student_school" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="studentGrade">Student Grade *</label>
+                    <select id="studentGrade" name="student_grade" required>
+                        <option value="">Select Grade...</option>
+                        <option value="5">Grade 5</option>
+                        <option value="6">Grade 6</option>
+                        <option value="7">Grade 7</option>
+                        <option value="8">Grade 8</option>
+                        <option value="9">Grade 9</option>
+                        <option value="10">Grade 10</option>
+                        <option value="11">Grade 11</option>
+                        <option value="12">Grade 12</option>
+                    </select>
+                </div>
+
+                <!-- Payment Responsible Party -->
+                <h3 style="color: var(--primary); margin: 30px 0 20px; font-size: 20px;">Person Responsible for Payment</h3>
+                
+                <div class="form-group">
+                    <label for="responsiblePerson">Full Name *</label>
+                    <input type="text" id="responsiblePerson" name="responsible_person" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="idNumber">ID Number *</label>
+                    <input type="text" id="idNumber" name="id_number" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="cellNumber">Cell Number *</label>
+                    <input type="tel" id="cellNumber" name="cell_number" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="workNumber">Work Number</label>
+                    <input type="tel" id="workNumber" name="work_number">
+                </div>
+                
+                <div class="form-group">
+                    <label for="homeNumber">Home Number</label>
+                    <input type="tel" id="homeNumber" name="home_number">
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
                     <input type="email" id="email" name="email" required>
                 </div>
+
+                <!-- Program Selection -->
+                <h3 style="color: var(--primary); margin: 30px 0 20px; font-size: 20px;">Program Selection</h3>
                 
                 <div class="form-group">
-                    <label for="phone">Phone</label>
-                    <input type="tel" id="phone" name="phone">
-                </div>
-                
-                <div class="form-group">
-                    <label for="role">Are you applying to be a participant or a facilitator? *</label>
-                    <select id="role" name="role" required>
+                    <label for="programType">Select Program Type *</label>
+                    <select id="programType" name="program_type" required onchange="updateProgramOptions()">
                         <option value="">Select...</option>
-                        <option value="participant">Participant</option>
-                        <option value="facilitator">Facilitator</option>
-                    </select>
-                </div>
-                
-                <div class="form-group" id="participantFields">
-                    <label for="cohort">Are you hoping to join the: *</label>
-                    <select id="cohort" name="cohort">
-                        <option value="">Select...</option>
-                        <option value="february">February Weekly Cohort</option>
-                        <option value="march">March Weekly Cohort</option>
-                        <option value="easter">Easter Holiday Full Week Workshop</option>
+                        <option value="monthly">Monthly Subscription - R1,999/month</option>
+                        <option value="holiday">Holiday Camp - R5,000/week or R9,000/2 weeks</option>
+                        <option value="single">Once-Off Session - R999</option>
                     </select>
                 </div>
 
-                <div class="form-group" id="facilitatorFields" style="display: none;">
-                    <label for="expertise">Your Area of Expertise *</label>
-                    <select id="expertise" name="expertise">
-                        <option value="">Select...</option>
-                        <option value="film">Film Student (Camera, Lighting, Editing, Sound)</option>
-                        <option value="drama">Drama Student (Performance, Improvisation, Direction)</option>
-                        <option value="content">Content Creator (Video, Social Media, Storytelling)</option>
-                        <option value="music">Music/DJ Student (Production, DJing, Recording)</option>
+                <!-- Monthly Subscription Options -->
+                <div class="form-group" id="monthlyOptions" style="display: none;">
+                    <label for="selectedMonth">Select Month *</label>
+                    <select id="selectedMonth" name="selected_month">
+                        <option value="">Select Month...</option>
+                        <option value="february">February 2026</option>
+                        <option value="march">March 2026</option>
+                        <option value="april">April 2026</option>
+                        <option value="may">May 2026</option>
+                        <option value="june">June 2026</option>
                     </select>
+                    <p style="color: #ccc; font-size: 14px; margin-top: 10px;">
+                        <strong>Fee:</strong> R1,999/month | <strong>Deposit Required:</strong> R999
+                    </p>
                 </div>
 
-                <div class="form-group" id="facilitatorAvailability" style="display: none;">
-                    <label for="availability">Availability *</label>
-                    <select id="availability" name="availability">
-                        <option value="">Select...</option>
-                        <option value="february">February Saturdays Only</option>
-                        <option value="easter">Easter Camp Only</option>
-                        <option value="both">Both February & Easter</option>
+                <!-- Holiday Camp Options -->
+                <div class="form-group" id="holidayOptions" style="display: none;">
+                    <label for="campDuration">Select Camp Duration *</label>
+                    <select id="campDuration" name="camp_duration">
+                        <option value="">Select Duration...</option>
+                        <option value="1week">1 Week - R5,000</option>
+                        <option value="2weeks">2 Weeks - R9,000</option>
                     </select>
+                    <p style="color: #ccc; font-size: 14px; margin-top: 10px;">
+                        <strong>Deposit Required:</strong> R999
+                    </p>
                 </div>
-                
+
+                <!-- Single Session Info -->
+                <div class="form-group" id="singleSessionInfo" style="display: none;">
+                    <p style="color: #ccc; font-size: 14px;">
+                        <strong>Fee:</strong> R999 (Full payment required)
+                    </p>
+                </div>
+
+                <!-- Terms and Conditions -->
+                <div class="form-group" style="margin-top: 30px;">
+                    <label style="display: flex; align-items: flex-start; gap: 10px; text-transform: none; font-size: 14px; line-height: 1.6;">
+                        <input type="checkbox" id="termsAccepted" name="terms_accepted" required style="width: auto; margin-top: 3px;">
+                        <span>I understand that a fee is payable in advance as per the above fees. A place in either the weekend or holiday camps is only finalized once we have received the student's deposit. Bank details and payment terms will be sent to me via email. *</span>
+                    </label>
+                </div>
+
                 <div class="form-group">
-                    <label for="message">Message</label>
+                    <label for="message">Additional Notes or Questions</label>
                     <textarea id="message" name="message"></textarea>
                 </div>
                 
-                <button type="submit" class="submit-button" id="submitButton">Send Application</button>
+                <button type="submit" class="submit-button" id="submitButton">Submit Application</button>
                 
                 <div class="success-message" id="successMessage">
-                    Thank you! We'll be in touch soon.
+                    Thank you! Your application has been received. Bank details and payment instructions will be sent to your email shortly.
                 </div>
                 
                 <div class="error-message" id="errorMessage">
@@ -1119,18 +1186,15 @@
         }
 
         // Contact form modal
-        function openContactForm() {
-            event.preventDefault();
+        function openContactForm(event) {
+            if (event) event.preventDefault();
             document.getElementById('contactModal').classList.add('active');
-            document.getElementById('role').value = 'participant';
-            toggleFormFields();
         }
 
-        function openFacilitatorForm() {
-            event.preventDefault();
-            document.getElementById('contactModal').classList.add('active');
-            document.getElementById('role').value = 'facilitator';
-            toggleFormFields();
+        function openFacilitatorForm(event) {
+            if (event) event.preventDefault();
+            // For facilitators, redirect to email or separate page
+            window.location.href = 'mailto:info@creatorcarnival.co.za?subject=Facilitator Application&body=Please include:%0D%0A- CV/Portfolio%0D%0A- Your area of expertise%0D%0A- Why C3?%0D%0A- Availability (Feb, Easter, or both)';
         }
 
         function closeContactForm() {
@@ -1138,41 +1202,41 @@
             document.getElementById('successMessage').classList.remove('active');
             document.getElementById('errorMessage').classList.remove('active');
             document.getElementById('contactForm').reset();
+            // Reset dynamic fields
+            document.getElementById('monthlyOptions').style.display = 'none';
+            document.getElementById('holidayOptions').style.display = 'none';
+            document.getElementById('singleSessionInfo').style.display = 'none';
         }
 
-        // Toggle form fields based on role selection
-        function toggleFormFields() {
-            const role = document.getElementById('role').value;
-            const participantFields = document.getElementById('participantFields');
-            const facilitatorFields = document.getElementById('facilitatorFields');
-            const facilitatorAvailability = document.getElementById('facilitatorAvailability');
-            const cohortField = document.getElementById('cohort');
-            const expertiseField = document.getElementById('expertise');
-            const availabilityField = document.getElementById('availability');
+        // Update program options based on selection
+        function updateProgramOptions() {
+            const programType = document.getElementById('programType').value;
+            const monthlyOptions = document.getElementById('monthlyOptions');
+            const holidayOptions = document.getElementById('holidayOptions');
+            const singleSessionInfo = document.getElementById('singleSessionInfo');
+            const selectedMonth = document.getElementById('selectedMonth');
+            const campDuration = document.getElementById('campDuration');
 
-            if (role === 'participant') {
-                participantFields.style.display = 'block';
-                facilitatorFields.style.display = 'none';
-                facilitatorAvailability.style.display = 'none';
-                cohortField.required = true;
-                expertiseField.required = false;
-                availabilityField.required = false;
-            } else if (role === 'facilitator') {
-                participantFields.style.display = 'none';
-                facilitatorFields.style.display = 'block';
-                facilitatorAvailability.style.display = 'block';
-                cohortField.required = false;
-                expertiseField.required = true;
-                availabilityField.required = true;
-            } else {
-                participantFields.style.display = 'none';
-                facilitatorFields.style.display = 'none';
-                facilitatorAvailability.style.display = 'none';
+            // Hide all options first
+            monthlyOptions.style.display = 'none';
+            holidayOptions.style.display = 'none';
+            singleSessionInfo.style.display = 'none';
+
+            // Reset required attributes
+            selectedMonth.required = false;
+            campDuration.required = false;
+
+            // Show relevant options
+            if (programType === 'monthly') {
+                monthlyOptions.style.display = 'block';
+                selectedMonth.required = true;
+            } else if (programType === 'holiday') {
+                holidayOptions.style.display = 'block';
+                campDuration.required = true;
+            } else if (programType === 'single') {
+                singleSessionInfo.style.display = 'block';
             }
         }
-
-        // Add event listener to role selection
-        document.getElementById('role').addEventListener('change', toggleFormFields);
 
         // Close modal when clicking outside
         window.onclick = function(event) {
@@ -1209,9 +1273,13 @@
                 if (response.ok) {
                     successMessage.classList.add('active');
                     form.reset();
+                    // Reset dynamic fields
+                    document.getElementById('monthlyOptions').style.display = 'none';
+                    document.getElementById('holidayOptions').style.display = 'none';
+                    document.getElementById('singleSessionInfo').style.display = 'none';
                     setTimeout(() => {
                         closeContactForm();
-                    }, 3000);
+                    }, 5000);
                 } else {
                     errorMessage.classList.add('active');
                 }
@@ -1221,7 +1289,7 @@
             })
             .finally(() => {
                 submitButton.disabled = false;
-                submitButton.textContent = 'Send Application';
+                submitButton.textContent = 'Submit Application';
             });
         });
 
@@ -1229,7 +1297,7 @@
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 const href = this.getAttribute('href');
-                if (href !== '#' && !this.onclick) {
+                if (href !== '#' && !this.hasAttribute('onclick')) {
                     e.preventDefault();
                     const target = document.querySelector(href);
                     if (target) {
@@ -1237,7 +1305,10 @@
                             behavior: 'smooth',
                             block: 'start'
                         });
+                        // Close mobile menu if open
+                        document.getElementById('navLinks').classList.remove('active');
                     }
                 }
             });
         });
+    </script>
