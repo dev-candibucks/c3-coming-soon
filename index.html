@@ -395,6 +395,9 @@
             position: relative;
             overflow: hidden;
             transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .program-card:hover {
@@ -411,7 +414,7 @@
         .program-details {
             color: #ccc;
             line-height: 1.8;
-            margin-bottom: 15px;
+            margin-bottom: 25px;
         }
 
         .program-details strong {
@@ -673,7 +676,6 @@
     </style>
 </head>
 <body>
-    <!-- Navigation -->
     <nav>
         <div class="logo-nav">C3</div>
         <ul class="nav-links" id="navLinks">
@@ -687,7 +689,6 @@
         <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
     </nav>
 
-    <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-content">
             <div class="hero-text">
@@ -701,13 +702,12 @@
             </div>
             <div class="hero-image">
                 <div class="hero-image-circle">
-                    <img src="hero-image.jpg" alt="C3 Content Creator Carnival">
+                    <img src="content_creator_carnival_1.jpg" alt="C3 Content Creator Carnival">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- What is C3 Section -->
     <section class="what-is-c3" id="about">
         <div class="section-content">
             <h2 class="section-title">What is C3?</h2>
@@ -755,7 +755,6 @@
         </div>
     </section>
 
-    <!-- Why C3 Section -->
     <section class="why-c3">
         <div class="why-content">
             <h2>Why C3?</h2>
@@ -777,17 +776,16 @@
         </div>
     </section>
 
-    <!-- Gallery Section -->
     <section class="gallery">
         <div class="section-content">
             <h2 class="section-title">Experience C3</h2>
             <p class="intro-text">Stop wondering. Start doing.</p>
             <div class="gallery-grid">
                 <div class="gallery-item">
-                    <img src="gallery-1.jpg" alt="C3 Workshop" class="gallery-image">
+                    <img src="content_creator_carnival_2.jpg" alt="C3 Workshop" class="gallery-image">
                 </div>
                 <div class="gallery-item">
-                    <img src="gallery-2.jpg" alt="Content Creation" class="gallery-image">
+                    <img src="content_creator_carnival_3.jpg" alt="Content Creation" class="gallery-image">
                 </div>
                 <div class="gallery-item">
                     <img src="gallery-3.jpg" alt="Music Production" class="gallery-image">
@@ -802,32 +800,37 @@
         </div>
     </section>
 
-    <!-- Programs Section -->
     <section class="programs" id="programs">
         <div class="section-content">
             <h2 class="section-title">Two Ways to Join the Movement</h2>
             
             <div class="program-cards">
                 <div class="program-card">
-                    <h3>Weekly Workshops</h3>
-                    <div class="program-details">
-                        <p><strong>When:</strong> Every Saturday (February & March)</p>
-                        <p><strong>Time:</strong> 10:00 - 16:00</p>
-                        <p><strong>Ages:</strong> 10-13 | 13-17</p>
-                        <p><strong>Perfect for:</strong> Testing the waters, learning specific skills</p>
-                        <p style="margin-top: 20px;">Try different creative disciplines each week. Build your portfolio. Decide what you love most.</p>
+                    <div>
+                        <h3>Weekly Workshops</h3>
+                        <div class="program-details">
+                            <p><strong>When:</strong> Every Saturday (February & March)</p>
+                            <p><strong>Time:</strong> 10:00 - 16:00</p>
+                            <p><strong>Ages:</strong> 10-13 | 13-17</p>
+                            <p><strong>Perfect for:</strong> Testing the waters, learning specific skills</p>
+                            <p style="margin-top: 20px;">Try different creative disciplines each week. Build your portfolio. Decide what you love most.</p>
+                        </div>
                     </div>
+                    <a href="apply.html" class="btn-primary" style="width: 100%; text-align: center;">Join the Workshop</a>
                 </div>
 
                 <div class="program-card">
-                    <h3>Full Camp Experience</h3>
-                    <div class="program-details">
-                        <p><strong>When:</strong> Easter Holidays (March to May)</p>
-                        <p><strong>Duration:</strong> 6 days of pure creation</p>
-                        <p><strong>Ages:</strong> 10-13 | 13-17</p>
-                        <p><strong>Perfect for:</strong> Going all in, creating something epic</p>
-                        <p style="margin-top: 20px;">The complete immersive experience. Create a short film, produce a track, build a content series, collaborate on group projects!</p>
+                    <div>
+                        <h3>Full Camp Experience</h3>
+                        <div class="program-details">
+                            <p><strong>When:</strong> Easter Holidays (March to May)</p>
+                            <p><strong>Duration:</strong> 6 days of pure creation</p>
+                            <p><strong>Ages:</strong> 10-13 | 13-17</p>
+                            <p><strong>Perfect for:</strong> Going all in, creating something epic</p>
+                            <p style="margin-top: 20px;">The complete immersive experience. Create a short film, produce a track, build a content series, and collaborate on group projects!</p>
+                        </div>
                     </div>
+                    <a href="apply.html" class="btn-primary" style="width: 100%; text-align: center;">Join the Camp</a>
                 </div>
             </div>
 
@@ -841,7 +844,6 @@
         </div>
     </section>
 
-    <!-- Facilitators Section -->
     <section class="facilitators" id="facilitators">
         <div class="facilitators-content">
             <div class="facilitators-grid">
@@ -898,20 +900,19 @@
         </div>
     </section>
 
-    <!-- CTA Section -->
     <section class="cta-section">
         <h2>Spaces Are Limited. Your Moment Is Now.</h2>
         <p>Will you spend another holiday scrolling... or will you become the one people scroll to see?</p>
         <a href="apply.html" class="btn-light">Apply Now</a>
     </section>
 
-    <section id="schedule-cta" style="padding: 100px 60px; background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('your-action-shot.jpg'); background-size: cover; text-align: center; border-top: 2px solid var(--primary);">
+    <section id="schedule-cta" style="padding: 100px 60px; background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('content_creator_carnival_1.jpg'); background-size: cover; text-align: center; border-top: 2px solid var(--primary);">
     <div style="max-width: 800px; margin: 0 auto;">
         <h2 style="font-size: clamp(32px, 5vw, 64px); font-weight: 900; color: var(--primary); text-transform: uppercase; margin-bottom: 20px;">
             The 6-Day Blueprint
         </h2>
         <p style="font-size: 1.25rem; color: #ccc; margin-bottom: 40px;">
-            From "Sonic Rebellion" to "Visual Architecture"—see the full minute-by-minute breakdown of how we turn consumers into creators.
+            From "Sonic Rebellion" to "Visual Alchemy"—see the full minute-by-minute breakdown of how we turn consumers into creators.
         </p>
         <a href="curriculum.html" class="btn-primary" style="text-decoration: none; display: inline-block;">
             Explore the Full Schedule
@@ -919,7 +920,6 @@
     </div>
 </section>
 
-    <!-- Footer -->
     <footer>
         <div class="footer-content">
             <div class="footer-section">
