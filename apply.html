@@ -136,7 +136,7 @@
 
     <nav>
         <a href="index.html" class="logo-nav">C3</a>
-        <a href="index.html" style="color: #fff; text-decoration: none;">← Back</a>
+        <a href="index.html" style="color: #fff; text-decoration: none;">&larr; Back</a>
     </nav>
 
     <div class="container">
@@ -219,6 +219,41 @@
                     </select>
                 </div>
 
+                <div id="holidayOptions" style="display:none;" class="form-group">
+                    <label>Select Holiday Camp Date *</label>
+                    <select name="holiday_camp_date">
+                        <option value="">Select a week...</option>
+                        
+                        <optgroup label="Autumn Break (March/April)">
+                            <option value="mar30-apr04">30 March &ndash; 04 April (Public School Break)</option>
+                            <option value="apr06-apr11">06 April &ndash; 11 April (Private School Break)</option>
+                            <option value="apr13-apr18">13 April &ndash; 18 April (Private School Break)</option>
+                            <option value="apr20-apr25">20 April &ndash; 25 April (Private School Break)</option>
+                            <option value="apr27-may02">27 April &ndash; 02 May (Private School Break)</option>
+                        </optgroup>
+
+                        <optgroup label="Winter Break (June/July/August)">
+                            <option value="jun29-jul04">29 June &ndash; 04 July (Public School Break)</option>
+                            <option value="jul06-jul11">06 July &ndash; 11 July (Public School Break)</option>
+                            <option value="jul13-jul18">13 July &ndash; 18 July (Public School Break)</option>
+                            <option value="aug10-aug15">10 August &ndash; 15 August (Private School Break)</option>
+                            <option value="aug17-aug22">17 August &ndash; 22 August (Private School Break)</option>
+                            <option value="aug24-aug29">24 August &ndash; 29 August (Private School Break)</option>
+                            <option value="aug31-sep05">31 August &ndash; 05 September (Private School Break)</option>
+                        </optgroup>
+
+                        <optgroup label="Spring Break (September/October)">
+                            <option value="sep28-oct03">28 September &ndash; 03 October (Public School Break)</option>
+                        </optgroup>
+
+                        <optgroup label="Summer Break (December)">
+                            <option value="dec07-dec12">07 December &ndash; 12 December (Private School Break)</option>
+                            <option value="dec14-dec19">14 December &ndash; 19 December (Shared Break)</option>
+                            <option value="dec21-dec26">21 December &ndash; 26 December (Shared Break)</option>
+                        </optgroup>
+                    </select>
+                </div>
+
                 <div id="monthlyOptions" style="display:none;" class="pricing-info">
                     <p><strong>Workshops:</strong> Recurring Saturdays. R999 Deposit required to secure spot.</p>
                 </div>
@@ -245,8 +280,8 @@
                 <p><strong>1. ASSUMPTION OF RISK:</strong> I understand that participation in the C3 Content Creator Carnival involves the use of high-end electronic equipment, physical movement on sets, and interaction in a studio environment. While C3 takes all reasonable precautions, I acknowledge inherent risks exist.</p><br>
                 <p><strong>2. WAIVER OF LIABILITY:</strong> I hereby indemnify and hold harmless Vayavaya Pty Ltd T/A C3, its directors and employees, against any claims, damages, or loss to person or property during the program, whether caused by negligence or otherwise.</p><br>
                 <p><strong>3. MEDICAL CONSENT:</strong> In an emergency where I cannot be reached, I authorize C3 staff to seek medical attention for the Participant for my account.</p><br>
-                <p><strong>4. MEDIA & CHILD LIKENESS:</strong> I grant C3 the irrevocable right to use the Participant’s image, voice, and any creative work produced during the program (films, music, photos) for marketing, social media, and promotional purposes. I waive any right to compensation for such usage.</p><br>
-                <p><strong>5. EQUIPMENT RESPONSIBILITY:</strong> I acknowledge that the Participant will handle professional gear. I agree that I may be held liable for damages caused by the Participant’s gross negligence or intentional misuse.</p>
+                <p><strong>4. MEDIA & CHILD LIKENESS:</strong> I grant C3 the irrevocable right to use the Participant&rsquo;s image, voice, and any creative work produced during the program (films, music, photos) for marketing, social media, and promotional purposes. I waive any right to compensation for such usage.</p><br>
+                <p><strong>5. EQUIPMENT RESPONSIBILITY:</strong> I acknowledge that the Participant will handle professional gear. I agree that I may be held liable for damages caused by the Participant&rsquo;s gross negligence or intentional misuse.</p>
             </div>
             <button type="button" id="agreeBtn" style="margin-top: 20px; width:100%; padding: 15px; background: var(--primary); border:none; color:#fff; cursor:pointer; font-weight: bold; border-radius: 5px;">I UNDERSTAND AND AGREE</button>
         </div>
@@ -255,8 +290,13 @@
     <script>
         function updateOptions() {
             const type = document.getElementById('programType').value;
+            
             document.getElementById('monthlyOptions').style.display = type === 'monthly' ? 'block' : 'none';
             document.getElementById('onceOffOptions').style.display = type === 'once-off' ? 'block' : 'none';
+            document.getElementById('holidayOptions').style.display = type === 'holiday' ? 'block' : 'none';
+
+            const holidaySelect = document.querySelector('select[name="holiday_camp_date"]');
+            holidaySelect.required = (type === 'holiday');
         }
 
         const modal = document.getElementById("indemnity-modal");
